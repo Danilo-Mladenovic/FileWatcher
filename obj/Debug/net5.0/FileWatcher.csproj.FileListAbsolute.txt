@@ -1,0 +1,16 @@
+/home/danilo/repos/C#/FileWatcher/bin/Debug/net5.0/FileWatcher
+/home/danilo/repos/C#/FileWatcher/bin/Debug/net5.0/FileWatcher.deps.json
+/home/danilo/repos/C#/FileWatcher/bin/Debug/net5.0/FileWatcher.runtimeconfig.json
+/home/danilo/repos/C#/FileWatcher/bin/Debug/net5.0/FileWatcher.runtimeconfig.dev.json
+/home/danilo/repos/C#/FileWatcher/bin/Debug/net5.0/FileWatcher.dll
+/home/danilo/repos/C#/FileWatcher/bin/Debug/net5.0/ref/FileWatcher.dll
+/home/danilo/repos/C#/FileWatcher/bin/Debug/net5.0/FileWatcher.pdb
+/home/danilo/repos/C#/FileWatcher/obj/Debug/net5.0/FileWatcher.csproj.AssemblyReference.cache
+/home/danilo/repos/C#/FileWatcher/obj/Debug/net5.0/FileWatcher.GeneratedMSBuildEditorConfig.editorconfig
+/home/danilo/repos/C#/FileWatcher/obj/Debug/net5.0/FileWatcher.AssemblyInfoInputs.cache
+/home/danilo/repos/C#/FileWatcher/obj/Debug/net5.0/FileWatcher.AssemblyInfo.cs
+/home/danilo/repos/C#/FileWatcher/obj/Debug/net5.0/FileWatcher.csproj.CoreCompileInputs.cache
+/home/danilo/repos/C#/FileWatcher/obj/Debug/net5.0/FileWatcher.dll
+/home/danilo/repos/C#/FileWatcher/obj/Debug/net5.0/ref/FileWatcher.dll
+/home/danilo/repos/C#/FileWatcher/obj/Debug/net5.0/FileWatcher.pdb
+/home/danilo/repos/C#/FileWatcher/obj/Debug/net5.0/FileWatcher.genruntimeconfig.cache
