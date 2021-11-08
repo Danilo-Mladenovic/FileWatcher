@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Threading.Tasks;
 
 namespace FileWatcher
 {
@@ -7,7 +8,7 @@ namespace FileWatcher
   {
     static void Main(string[] args)
     {
-      using var watcher = new FileSystemWatcher(@"/home/danilo/Documents");
+      using var watcher = new FileSystemWatcher(@"/home/danilo/Documents/zi_citanje");
 
       watcher.NotifyFilter = NotifyFilters.Attributes
                            | NotifyFilters.CreationTime
@@ -42,8 +43,75 @@ namespace FileWatcher
 
     private static void OnCreated(object sender, FileSystemEventArgs e)
     {
-      string value = $"Created: {e.FullPath}";
-      Console.WriteLine(value);
+      string plainText = System.IO.File.ReadAllText(@e.FullPath);
+      string cipherText = OneTimePadEncription(plainText);
+      string inputPath = e.Name;
+
+      WriteText(cipherText, inputPath);
+
+    }
+
+    private static string OneTimePadEncription(string plainText)
+    {
+      string key = "ThisIsAHardCodedKey";
+      string cipherText = "";
+
+      int[] cipher = new int[key.Length];
+
+      for (int i = 0; i < key.Length; i++)
+      {
+        cipher[i] = plainText[i] - 'A' + key[i] - 'A';
+      }
+
+      for (int i = 0; i < key.Length; i++)
+      {
+        if (cipher[i] > 25)
+        {
+          cipher[i] = cipher[i] - 26;
+        }
+      }
+
+      for (int i = 0; i < key.Length; i++)
+      {
+        int x = cipher[i] + 'A';
+        cipherText += (char)x;
+      }
+
+      return cipherText;
+    }
+
+    private static string OneTimePadDecription(string cipherText)
+    {
+      string key = "ThisIsAHardCodedKey";
+      string plainText = "";
+
+      int[] plain = new int[key.Length];
+
+      for (int i = 0; i < key.Length; i++)
+      {
+        plain[i] = cipherText[i] - 'A' - key[i] - 'A';
+      }
+
+      for (int i = 0; i < key.Length; i++)
+      {
+        if (plain[i] < 0)
+        {
+          plain[i] = plain[i] + 26;
+        }
+      }
+
+      for (int i = 0; i < key.Length; i++)
+      {
+        int x = plain[i] + 'A';
+        plainText += (char)x;
+      }
+
+      return plainText;
+    }
+
+    public static async Task WriteText(string criptedText, string path)
+    {
+      await File.WriteAllTextAsync(Path.Combine("/home/danilo/Documents/zi_upis/", path), criptedText);
     }
 
     private static void OnDeleted(object sender, FileSystemEventArgs e) =>
